@@ -257,9 +257,24 @@ a:focus-visible, button:focus-visible {
   font: 700 14px/23px var(--font-sans); text-align: center;
 }
 .num-list small { display: block; margin-top: 2px; font-size: 13.5px; color: var(--c-muted); }
-.rules li { padding-top: 12px; padding-bottom: 14px; }
-.rules li::before { top: 14px; }
-.rule__title { display: block; margin-bottom: 4px; font-family: var(--font-serif); font-size: 17px; line-height: 1.5; color: var(--c-ink); }
+.rules { counter-reset: rule; display: grid; gap: 10px; margin: 16px 0 24px; }
+.rule { counter-increment: rule; background: #fff; border: 1px solid var(--c-line); border-radius: var(--radius-m); }
+.rule[open] { border-color: var(--c-taupe); }
+.rule summary {
+  display: flex; align-items: center; gap: 12px; min-height: 56px; padding: 10px 16px; cursor: pointer; list-style: none;
+}
+.rule summary::-webkit-details-marker { display: none; }
+.rule summary::before {
+  content: counter(rule); flex: none; display: grid; place-items: center; width: 28px; height: 28px; border-radius: 50%;
+  border: 1.5px solid var(--c-taupe); color: var(--c-taupe); font: 700 14px/1 var(--font-sans);
+}
+.rule summary::after {
+  content: ""; flex: none; width: 9px; height: 9px; margin: 0 4px 3px auto;
+  border: solid var(--c-taupe); border-width: 0 2px 2px 0; transform: rotate(45deg); transition: transform .2s;
+}
+.rule[open] summary::after { transform: rotate(-135deg); margin-bottom: -3px; }
+.rule__body { padding: 0 16px 16px 56px; font-size: 15px; }
+.rule__title { font-family: var(--font-serif); font-size: 16.5px; line-height: 1.5; font-weight: 600; color: var(--c-ink); }
 .rule__example { display: block; margin: 10px 0 6px; padding: 12px 14px; background: #fff; border: 1px dashed var(--c-greige); border-radius: var(--radius-s); font-size: 14.5px; line-height: 1.7; color: var(--c-ink); }
 .section--soft .num-list li::before { background: #fff; }
 

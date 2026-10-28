@@ -169,9 +169,9 @@
   function rules(r) {
     const items = r.items
       .map(
-        (it) => `<li><strong class="rule__title">${it.title}</strong>${it.text}${
+        (it) => `<details class="rule"><summary><span class="rule__title">${it.title}</span></summary><div class="rule__body"><p>${it.text}</p>${
           it.example ? `<span class="rule__example" lang="en">${it.example}</span><span class="source">${it.exampleNote}</span>` : ""
-        }${it.unconfirmed ? `<span class="source">${it.unconfirmed}</span>` : ""}</li>`
+        }${it.unconfirmed ? `<span class="source">${it.unconfirmed}</span>` : ""}</div></details>`
       )
       .join("");
     return `
@@ -179,7 +179,8 @@
       <div class="container">
         <h2 class="heading" id="${r.id}-title">${r.heading}</h2>
         <p>${r.lead}</p>
-        <ol class="num-list rules">${items}</ol>
+        <p class="source">${r.openHint}</p>
+        <div class="rules">${items}</div>
         <aside class="point-box point-box--caution"><p class="point-box__label">${r.linksLabel}</p>${linkLines(r.links)}<p class="source">${r.note}</p></aside>
       </div>
     </section>`;
