@@ -97,9 +97,8 @@
   }
 
   function promptBlock(b, id) {
-    const hint = /［/.test(b.text)
-      ? `色がついた <span class="slot">［　］</span> の中を、自分の内容に書き換えて使います。`
-      : b.hint || "そのまま貼り付けて使えます。";
+    const slotHint = `色がついた <span class="slot">［　］</span> の中を、自分の内容に書き換えて使います。`;
+    const hint = /［/.test(b.text) ? slotHint + (b.hint ? ` ${b.hint}` : "") : b.hint || "そのまま貼り付けて使えます。";
     return `
     <div class="prompt">
       <p class="prompt__label">${b.label}</p>
