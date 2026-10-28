@@ -284,7 +284,13 @@ a:focus-visible, button:focus-visible {
 /* プロンプト */
 .prompt__hint { margin-bottom: 10px; font-size: 13.5px; color: var(--c-muted); }
 .prompt__fallback { margin: 12px 0 0; font-size: 14px; color: var(--c-pink-deep); font-weight: 700; }
-.slot { background: #fff1c9; color: #6b4a00; font-weight: 700; border-radius: 3px; padding: 0 2px; }
+.slot {
+  background: #ffe28a; color: #5a3d00; font-weight: 700; border-radius: 4px; padding: 1px 8px; margin: 0 2px;
+  border-bottom: 2px solid #c98f00; box-decoration-break: clone; -webkit-box-decoration-break: clone;
+}
+.prompt__text .slot::before { content: "✎ 書き換え｜"; font-size: .78em; font-weight: 700; color: var(--c-pink-deep); }
+.prompt__hint .slot::before { content: none; }
+.prompt__hint strong { color: var(--c-pink-deep); }
 .btn--primary { width: 100%; min-height: 52px; }
 .copy-btn__done { display: none; }
 .copy-btn.is-copied { background: var(--c-pink-deep); border-color: var(--c-pink-deep); color: #fff; }

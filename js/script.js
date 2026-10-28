@@ -97,7 +97,8 @@
   }
 
   function promptBlock(b, id) {
-    const slotHint = `色がついた <span class="slot">［　］</span> の中を、自分の内容に書き換えて使います。`;
+    const slots = (b.text.match(/［[^］\n]*］/g) || []).length;
+    const slotHint = `<strong>黄色の <span class="slot">［　］</span> の中が、書き換える場所（${slots}か所）</strong>です。自分の内容に変えてから、コピーしてください。`;
     const hint = /［/.test(b.text) ? slotHint + (b.hint ? ` ${b.hint}` : "") : b.hint || "そのまま貼り付けて使えます。";
     return `
     <div class="prompt">
