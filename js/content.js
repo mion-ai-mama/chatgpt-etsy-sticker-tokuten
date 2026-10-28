@@ -106,7 +106,7 @@ const CONTENT = {
       title: "スマホの写真をステッカーに変えよう！",
       lead: "使うのは、自分で撮影した写真です。",
       blocks: [
-        { type: "list", heading: "写真の例", items: ["日本の自販機", "赤い郵便ポスト", "提灯", "レトロな喫茶店の外観", "商店街の風景"] },
+        { type: "list", heading: "写真の例", items: ["日本の自販機", "赤い郵便ポスト", "提灯", "レトロな喫茶店の外観", "商店街の風景", "おでんなど、身近な日本らしいもの"] },
         { type: "ordered", heading: "操作手順", items: ["ChatGPTを開く", "自分で撮った写真をアップロードする", "下のプロンプトを送る", "完成した画像を確認する", "必要に応じて修正し、PNGで保存する"] },
         {
           type: "prompt",
@@ -126,11 +126,11 @@ const CONTENT = {
           type: "flow",
           heading: "写真 → ChatGPT → 完成ステッカー",
           nodes: [
-            { img: "assets/images/photo-chochin.jpg", alt: "商店街に吊るされた赤い提灯の写真のイメージ", ratio: "4 / 3", caption: "BEFORE｜写真" },
+            { img: "assets/images/photo-oden.jpg", alt: "土鍋で煮込まれたおでんを撮影した写真", ratio: "1000 / 820", caption: "BEFORE｜写真" },
             { chip: "ChatGPT" },
-            { img: "assets/images/sticker-chochin.jpg", alt: "赤い提灯をモチーフにした、白い縁取りのステッカー", ratio: "1 / 1", caption: "AFTER｜完成ステッカー" },
+            { img: "assets/images/sticker-oden.png", alt: "おでんの土鍋をイラスト調にした、白い縁取りのステッカー", ratio: "800 / 720", caption: "AFTER｜完成ステッカー" },
           ],
-          note: "同じ被写体（提灯）で並べた作例です。写真は作例用のイメージで、実際の仕上がりは写真や指示によって変わります。",
+          note: "同じ被写体（おでん）で並べた作例です。実際の仕上がりは、写真や指示によって変わります。",
         },
         { type: "point", label: "確認のポイント", text: "背景が透明になっているか、縁取りがきれいか、文字やロゴが入っていないかを、作品ごとに確認しましょう。透明になっていない場合は、ChatGPTに「背景を透明にして」と追加で伝えるか、画像編集ツールの背景除去機能を使います。" },
       ],

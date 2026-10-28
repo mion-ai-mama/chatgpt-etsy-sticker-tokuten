@@ -273,7 +273,7 @@ a:focus-visible, button:focus-visible {
 /* 写真 → ChatGPT → ステッカー */
 .vis { list-style: none; margin: 12px 0 0; padding: 0; display: grid; gap: 4px; justify-items: center; }
 .vis__node { width: 100%; max-width: 320px; display: grid; gap: 6px; text-align: center; }
-.vis__node img { width: 100%; height: auto; object-fit: contain; background: #fff; border: 1px solid var(--c-line); border-radius: var(--radius-s); }
+.vis__node img { width: 100%; height: auto; object-fit: contain; background: var(--c-section); border: 1px solid var(--c-line); border-radius: var(--radius-s); }
 .vis__cap { font-size: 13px; font-weight: 700; letter-spacing: .06em; color: var(--c-taupe); }
 .vis__box { margin: 0; padding: 18px 16px; display: grid; align-content: center; background: var(--c-section); border: 1px solid var(--c-line); border-radius: var(--radius-s); font-size: 14.5px; line-height: 1.8; color: var(--c-ink); text-align: left; aspect-ratio: 1 / 1; }
 .vis__chip span { display: inline-block; padding: 2px 16px; border-radius: var(--radius-pill); background: var(--c-pink-soft); color: var(--c-pink-deep); font: 700 13px/1.9 var(--font-sans); }
