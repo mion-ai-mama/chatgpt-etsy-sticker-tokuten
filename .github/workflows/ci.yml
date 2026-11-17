@@ -40,7 +40,7 @@ jobs:
         shell: bash
         run: |
           set -eu
-          for f in index.html css/style.css js/content.js js/script.js; do
+          for f in index.html css/style.css js/content.js js/line-cta.js js/script.js; do
             [ -f "$f" ] || { echo "  ✋ 必須ファイルがありません: $f"; exit 1; }
             echo "  ok: $f"
           done

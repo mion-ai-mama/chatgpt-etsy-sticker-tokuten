@@ -196,31 +196,37 @@
     </section>`;
   }
 
-  function finalCta(c, t, url) {
-    const pains = c.pains.map((p) => `<li class="pain__bubble">${p}</li>`).join("");
-    const rows = c.solutions
-      .map((r) => `<li class="solve__row"><p class="solve__pain">${r.pain}</p><p class="solve__give">${r.give}</p></li>`)
+  // LINE誘導: ①つなぎ(content.js) → ②体験談 → ③選択肢 → ④教科書のメリット → ⑤CTA（②〜⑤は line-cta.js）
+  function finalCta(intro, l, url) {
+    const paras = (arr) => arr.map((t) => `<p>${t}</p>`).join("");
+    const questions = l.options.questions.map((q) => `<li>${q}</li>`).join("");
+    const items = l.textbook.items
+      .map((it) => `<li class="line-guide__item"><strong>${it.name}</strong><span>${it.benefit}</span></li>`)
       .join("");
     return `
-    <section class="section section--soft" id="line" aria-labelledby="pain-title">
+    <section class="section" id="line" aria-label="LINEのご案内">
       <div class="container">
-        <h2 class="heading" id="pain-title">${c.painHeading}</h2>
-        <ul class="pain">${pains}</ul>
-        <p class="bridge">${c.bridge}</p>
+        <div class="line-guide">
+          <p class="line-guide__intro">${intro}</p>
+          <div class="line-guide__story">${paras(l.story)}</div>
+          <div class="line-guide__options">
+            <p>${l.options.lead}</p>
+            <ul class="line-guide__questions">${questions}</ul>
+            <p>${l.options.closing}</p>
+          </div>
+        </div>
         <div class="cta-final">
-          <h2 class="cta-final__title" id="final-cta-title">${c.heading}</h2>
-          <p class="cta-final__lead">${c.lead}</p>
-          <p class="solve__label">${c.solutionsLabel}</p>
-          <ul class="solve">${rows}</ul>
-          <p class="cta-final__caution">${c.caution}</p>
-          ${ext(url, c.buttonText, "btn--large")}
+          <h2 class="cta-final__title" id="final-cta-title">${l.textbook.heading}</h2>
+          <p class="cta-final__lead">${l.textbook.lead}</p>
+          <ul class="line-guide__items">${items}</ul>
+          ${ext(url, l.buttonText, "btn--large")}
+          <p class="cta-final__caution">${l.caution}</p>
         </div>
         <div class="textbook">
-          <p>${t.bridge}</p>
           <a class="textbook__banner" href="${esc(url)}" target="_blank" rel="noopener">
-            <img src="${esc(t.banner)}" alt="${esc(t.bannerAlt)}" loading="lazy">
+            <img src="${esc(l.banner)}" alt="${esc(l.bannerAlt)}" loading="lazy">
           </a>
-          <p>${t.support}</p>
+          <p>${l.support}</p>
         </div>
       </div>
     </section>`;
@@ -276,7 +282,7 @@
 
   function init() {
     const main = document.getElementById("main");
-    if (typeof CONTENT === "undefined") return;
+    if (typeof CONTENT === "undefined" || typeof LINE_CTA === "undefined") return;
     const c = CONTENT;
     applyMeta(c.meta);
     main.innerHTML =
@@ -288,7 +294,7 @@
       `<div class="basic-zone">${c.cards.map(card).join("")}</div>` +
       rules(c.rules) +
       summary(c.summary) +
-      finalCta(c.finalCta, c.textbook, c.lineUrl);
+      finalCta(c.lineIntro, LINE_CTA, c.lineUrl);
     document.getElementById("footer").innerHTML = `<p>${c.footer.copyright}</p><p>${c.footer.notice}</p>`;
     bind();
   }
