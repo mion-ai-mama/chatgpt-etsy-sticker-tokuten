@@ -142,13 +142,12 @@ a:focus-visible, button:focus-visible {
 }
 .cta-final p { margin-bottom: 0; text-align: left; }
 
-/* ---------- LINE誘導（つなぎ→体験談→選択肢。本編より目立たせない） ---------- */
+/* ---------- LINE誘導（つなぎ→ストーリー→教科書。本編より目立たせない） ---------- */
 .line-guide { margin-bottom: 32px; }
 .line-guide p { margin: 0 0 14px; }
 .line-guide__intro { font-family: var(--font-serif); font-size: 17px; line-height: 1.85; color: var(--c-ink); }
-.line-guide__story { margin: 24px 0; padding-left: 16px; border-left: 3px solid var(--c-greige); }
-.line-guide__questions { list-style: none; margin: 0 0 14px; padding: 0; }
-.line-guide__questions li { margin: 0 0 6px; padding: 10px 14px; background: var(--c-point); border-radius: var(--radius-s); }
+.line-guide__title { margin: 28px 0 16px; font-family: var(--font-serif); font-size: 19px; line-height: 1.6; color: var(--c-ink); }
+.line-guide__story { margin: 0 0 24px; padding-left: 16px; border-left: 3px solid var(--c-greige); }
 .line-guide__items { list-style: none; margin: 0 0 24px; padding: 0; text-align: left; }
 .line-guide__item { padding: 10px 0; border-bottom: 1px solid var(--c-line); }
 .line-guide__item:last-child { border-bottom: 0; }
